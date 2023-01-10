@@ -1,0 +1,218 @@
+:root {
+  --color-primary: #14212a;
+  --color-secondary: #cfcfcf;
+  --color-cell-bg: #192935;
+  --color-cell-bg-hover: #1e323f;
+  --color-typography: #ebf4f3;
+
+  --color-info-one: #46acff;
+  --color-info-two: #44cc77;
+  --color-info-three: #d0667a;
+  --color-info-four: #bb86fc;
+  --color-info-five: #f1c50e;
+  --color-info-six: #74ffe0;
+  --color-info-seven: #ff74d9;
+  --color-info-eight: #fe8978;
+
+  --cell-size: 2rem;
+  --gap: 5px;
+  --cells-in-row: 10;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Sofia Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-primary);
+}
+
+.game {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+  border-bottom: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.header__article {
+  display: flex;
+  align-items: center;
+}
+
+.header__counter {
+  margin-left: .25em;
+  font-size: 1.5rem;
+}
+
+.header__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.header__button {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border .5s;
+}
+
+.header__button:hover {
+  border: 2px solid var(--color-info-two)
+}
+
+.header__reset-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: var(--gap);
+  grid-row-gap: var(--gap);
+  margin: 2rem 0;
+}
+
+.board__cell {
+  width: var(--cell-size);
+  aspect-ratio: 1/1;
+  border: 1px solid var(--color-secondary);
+  border-radius: 2px;
+  background-color: var(--color-cell-bg);
+}
+
+.board__cell:hover {
+  background-color: var(--color-cell-bg-hover);
+  cursor: pointer;
+}
+
+.board__cell--mine,
+.board__cell--flag,
+.board__cell--mark {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.board__cell--mine {
+  background-image: url('../assets/bomb.svg');
+  background-size: 60%;
+}
+
+.board__cell--flag {
+  background-image: url('../assets/flag.svg');
+  background-size: 50%;
+}
+
+.board__cell--mark {
+  background-image: url('../assets/questionmark.svg');
+  background-size: 40%;
+}
+
+.board__cell--clicked {
+  border: 1px solid var(--color-cell-bg-hover);
+  background-color: var(--color-primary);
+}
+
+.board__cell--clicked:hover {
+  border: 1px solid var(--color-cell-bg-hover);
+  background-color: var(--color-primary);
+  cursor: initial;
+}
+
+.panel {
+  width: 100%;
+  min-width: 325px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-secondary);
+}
+
+.panel__button {
+  padding: .75rem 1.5rem;
+  background-color: var(--color-typography);
+  border: none;
+  border-radius: 100px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.pop-up__button {
+  margin-top: 1rem;
+}
+
+.panel__button:hover {
+  background-color: var(--color-info-two);
+  color: var(--color-primary);
+}
+
+footer {
+  height: 5vh;
+}
+
+.footer__icon {
+  width: 1.5rem;
+}
+
+.pop-up {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 50%;
+  left: 50%;
+  padding: 1.75rem 3.5rem;
+  background-color: var(--color-info-two);
+  border-radius: 15px;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary);
+}
+
+.pop-up--hidden {
+  display: none;
+}
+
+.pop-up__button {
+  padding: .75rem 1.5rem;
+  background-color: transparent;
+  border: 3px solid var(--color-typography);
+  border-radius: 100px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-typography);
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.pop-up__button:hover {
+  background-color: var(--color-typography);
+  color: var(--color-primary);
+}

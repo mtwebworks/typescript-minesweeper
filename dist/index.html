@@ -1,13 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./script/index.js" defer></script>
+  <!-- <script src="./script/index.js" defer></script> -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Minesweeper</title>
 </head>
 <body>
-  
+  <main class="game">
+    <header class="header">
+      <article class="header__article">
+        <img src="./assets/bomb.svg" alt="bomb icon" class="header__icon">
+        <span class="header__counter" data-counter>23</span>
+      </article>
+      <button class="header__button" data-resetb-button>
+        <img src="./assets/positive.svg" alt="smile face icon" class="header__reset-icon"> 
+      </button>
+      <article class="header__article">
+        <img src="./assets/stopwatch.svg" alt="stopwatch icon" class="header__icon">
+        <span class="header__counter" data-timer="">023</span>
+      </article>
+    </header>
+    <article class="board" data-board>
+        <div class="board__cell board__cell--mine"></div>
+        <div class="board__cell board__cell--flag"></div>
+        <div class="board__cell board__cell--clicked"></div>
+        <div class="board__cell board__cell--mark"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+        <div class="board__cell"></div>
+    </article>
+    <article class="panel">
+      <button class="panel__button">Easy</button>
+      <button class="panel__button">Normal</button>
+      <button class="panel__button">Expert</button>
+    </article>
+  </main>
+  <footer>
+    <a href="#" class="footer__link">
+      <img src="./assets/github.svg" alt="github logo" class="footer__icon">
+    </a>
+  </footer>
+  <div class="pop-up" data-popup>
+    <p data-message>You Lost!</p>
+    <button class="pop-up__button" data-close-button>Close</button>
+  </div>
 </body>
+
 </html>
