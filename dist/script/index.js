@@ -930,6 +930,58 @@ Object.defineProperty(exports, "__esModule", ({value:true}));exports.fromCodePoi
 
 /***/ }),
 
+/***/ "./src/Classes/Counter.ts":
+/*!********************************!*\
+  !*** ./src/Classes/Counter.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Counter": () => (/* binding */ Counter)
+/* harmony export */ });
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+
+class Counter extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
+    constructor() {
+        super(...arguments);
+        this.value = null;
+        this.element = null;
+    }
+    init() {
+        this.element = this.getElement(this.UiSelectors.counter);
+    }
+    setValue(value = 0) {
+        if (value === null)
+            return;
+        this.value = value;
+        this.updateValue();
+    }
+    increment() {
+        if (this.value !== null) {
+            this.value++;
+        }
+        this.updateValue();
+    }
+    decrement() {
+        if (this.value !== null) {
+            this.value--;
+        }
+        this.updateValue();
+    }
+    updateValue() {
+        var _a;
+        if (this.element) {
+            const valueString = (_a = this.value) === null || _a === void 0 ? void 0 : _a.toString();
+            this.element.textContent = valueString.length < 2 ? `0${valueString}` : valueString;
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ291bnRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNvdW50ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsT0FBTyxFQUFFLEVBQUUsRUFBRSxNQUFNLE1BQU0sQ0FBQztBQVMxQixNQUFNLE9BQU8sT0FBUSxTQUFRLEVBQUU7SUFBL0I7O1FBSUUsVUFBSyxHQUFrQixJQUFJLENBQUM7UUFLcEIsWUFBTyxHQUEyQixJQUFJLENBQUM7SUFrRGpELENBQUM7SUE3Q0MsSUFBSTtRQUNGLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBb0IsQ0FBQztJQUM5RSxDQUFDO0lBT0QsUUFBUSxDQUFDLFFBQXVCLENBQUM7UUFDL0IsSUFBSSxLQUFLLEtBQUssSUFBSTtZQUFFLE9BQU07UUFDMUIsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7UUFDbkIsSUFBSSxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBQ3JCLENBQUM7SUFLRCxTQUFTO1FBQ1AsSUFBSSxJQUFJLENBQUMsS0FBSyxLQUFLLElBQUksRUFBRTtZQUN2QixJQUFJLENBQUMsS0FBSyxFQUFFLENBQUE7U0FDYjtRQUNELElBQUksQ0FBQyxXQUFXLEVBQUUsQ0FBQTtJQUNwQixDQUFDO0lBS0QsU0FBUztRQUNQLElBQUksSUFBSSxDQUFDLEtBQUssS0FBSyxJQUFJLEVBQUU7WUFDdkIsSUFBSSxDQUFDLEtBQUssRUFBRSxDQUFBO1NBQ2I7UUFDRCxJQUFJLENBQUMsV0FBVyxFQUFFLENBQUE7SUFDcEIsQ0FBQztJQUtPLFdBQVc7O1FBQ2pCLElBQUksSUFBSSxDQUFDLE9BQU8sRUFBRTtZQUNoQixNQUFNLFdBQVcsR0FBRyxNQUFBLElBQUksQ0FBQyxLQUFLLDBDQUFFLFFBQVEsRUFBWSxDQUFBO1lBQ3BELElBQUksQ0FBQyxPQUFPLENBQUMsV0FBVyxHQUFHLFdBQVcsQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLFdBQVcsRUFBRSxDQUFDLENBQUMsQ0FBQyxXQUFXLENBQUM7U0FDckY7SUFDSCxDQUFDO0NBRUYifQ==
+
+/***/ }),
+
 /***/ "./src/Classes/Game.ts":
 /*!*****************************!*\
   !*** ./src/Classes/Game.ts ***!
@@ -941,9 +993,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Game": () => (/* binding */ Game)
 /* harmony export */ });
-/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+/* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Counter */ "./src/Classes/Counter.ts");
+/* harmony import */ var _Timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Timer */ "./src/Classes/Timer.ts");
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
 
-class Game extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
+
+
+class Game extends _Ui__WEBPACK_IMPORTED_MODULE_2__.Ui {
     constructor() {
         super(...arguments);
         this.config = {
@@ -963,11 +1019,83 @@ class Game extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
                 mines: 99
             },
         };
+        this.counter = new _Counter__WEBPACK_IMPORTED_MODULE_0__.Counter();
+        this.timer = new _Timer__WEBPACK_IMPORTED_MODULE_1__.Timer();
+        this.numberOfRows = null;
+        this.numberOfCols = null;
+        this.numberOfMines = null;
     }
     initializeGame() {
     }
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsT0FBTyxFQUFFLEVBQUUsRUFBRSxNQUFNLE1BQU0sQ0FBQztBQVkxQixNQUFNLE9BQU8sSUFBSyxTQUFRLEVBQUU7SUFBNUI7O1FBQ1UsV0FBTSxHQUFlO1lBQzNCLElBQUksRUFBRTtnQkFDSixJQUFJLEVBQUUsQ0FBQztnQkFDUCxJQUFJLEVBQUUsQ0FBQztnQkFDUCxLQUFLLEVBQUUsQ0FBQzthQUNUO1lBQ0QsTUFBTSxFQUFFO2dCQUNOLElBQUksRUFBRSxFQUFFO2dCQUNSLElBQUksRUFBRSxFQUFFO2dCQUNSLEtBQUssRUFBRSxFQUFFO2FBQ1Y7WUFDRCxNQUFNLEVBQUU7Z0JBQ04sSUFBSSxFQUFFLEVBQUU7Z0JBQ1IsSUFBSSxFQUFFLEVBQUU7Z0JBQ1IsS0FBSyxFQUFFLEVBQUU7YUFDVjtTQUNGLENBQUE7SUFPSCxDQUFDO0lBRkMsY0FBYztJQUNkLENBQUM7Q0FDRiJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsT0FBTyxFQUFFLE9BQU8sRUFBRSxNQUFNLFdBQVcsQ0FBQztBQUNwQyxPQUFPLEVBQUUsS0FBSyxFQUFFLE1BQU0sU0FBUyxDQUFDO0FBQ2hDLE9BQU8sRUFBRSxFQUFFLEVBQUUsTUFBTSxNQUFNLENBQUM7QUFhMUIsTUFBTSxPQUFPLElBQUssU0FBUSxFQUFFO0lBQTVCOztRQUNVLFdBQU0sR0FBZTtZQUMzQixJQUFJLEVBQUU7Z0JBQ0osSUFBSSxFQUFFLENBQUM7Z0JBQ1AsSUFBSSxFQUFFLENBQUM7Z0JBQ1AsS0FBSyxFQUFFLENBQUM7YUFDVDtZQUNELE1BQU0sRUFBRTtnQkFDTixJQUFJLEVBQUUsRUFBRTtnQkFDUixJQUFJLEVBQUUsRUFBRTtnQkFDUixLQUFLLEVBQUUsRUFBRTthQUNWO1lBQ0QsTUFBTSxFQUFFO2dCQUNOLElBQUksRUFBRSxFQUFFO2dCQUNSLElBQUksRUFBRSxFQUFFO2dCQUNSLEtBQUssRUFBRSxFQUFFO2FBQ1Y7U0FDRixDQUFBO1FBTU8sWUFBTyxHQUFHLElBQUksT0FBTyxFQUFFLENBQUM7UUFLeEIsVUFBSyxHQUFVLElBQUksS0FBSyxFQUFFLENBQUM7UUFNM0IsaUJBQVksR0FBa0IsSUFBSSxDQUFDO1FBS25DLGlCQUFZLEdBQWtCLElBQUksQ0FBQztRQUtuQyxrQkFBYSxHQUFrQixJQUFJLENBQUM7SUFTOUMsQ0FBQztJQUZDLGNBQWM7SUFDZCxDQUFDO0NBQ0YifQ==
+
+/***/ }),
+
+/***/ "./src/Classes/Timer.ts":
+/*!******************************!*\
+  !*** ./src/Classes/Timer.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Timer": () => (/* binding */ Timer)
+/* harmony export */ });
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+
+class Timer extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
+    constructor() {
+        super(...arguments);
+        this.element = null;
+        this.interval = null;
+        this._numberOfSeconds = 0;
+        this._maxNumberOfSeconds = 999;
+    }
+    get numberOfSeconds() {
+        return this._numberOfSeconds;
+    }
+    get maxNumberOfSeconds() {
+        return this._maxNumberOfSeconds;
+    }
+    init() {
+        this.element = this.getElement(this.UiSelectors.timer);
+    }
+    startTimer() {
+        this.interval = setInterval(() => this.updateTimer(), 1000);
+    }
+    stopTimer() {
+        clearInterval(Number(this.interval));
+    }
+    resetTimer() {
+        this._numberOfSeconds = 0;
+        this.setTimerValue(this._numberOfSeconds);
+        this.stopTimer();
+        this.startTimer();
+    }
+    updateTimer() {
+        this._numberOfSeconds++;
+        this._numberOfSeconds <= this._maxNumberOfSeconds ? this.setTimerValue(this._numberOfSeconds) : this.stopTimer();
+    }
+    setTimerValue(value) {
+        if (this.element) {
+            this.element.textContent = this.formatSecondsValue(value);
+        }
+    }
+    formatSecondsValue(value) {
+        if (value.toString().length === 1) {
+            return `00${value}`;
+        }
+        else if (value.toString().length === 2) {
+            return `0${value}`;
+        }
+        else {
+            return `${value}`;
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJUaW1lci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsRUFBRSxFQUFFLE1BQU0sTUFBTSxDQUFDO0FBUzFCLE1BQU0sT0FBTyxLQUFNLFNBQVEsRUFBRTtJQUE3Qjs7UUFLVSxZQUFPLEdBQTJCLElBQUksQ0FBQztRQUt2QyxhQUFRLEdBQXdCLElBQUksQ0FBQztRQUtyQyxxQkFBZ0IsR0FBVyxDQUFDLENBQUM7UUFLN0Isd0JBQW1CLEdBQVcsR0FBRyxDQUFDO0lBNkU1QyxDQUFDO0lBMUVDLElBQUksZUFBZTtRQUNqQixPQUFPLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQTtJQUM5QixDQUFDO0lBRUQsSUFBSSxrQkFBa0I7UUFDcEIsT0FBTyxJQUFJLENBQUMsbUJBQW1CLENBQUE7SUFDakMsQ0FBQztJQUtELElBQUk7UUFDRixJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxLQUFLLENBQW9CLENBQUE7SUFDM0UsQ0FBQztJQUtELFVBQVU7UUFDUixJQUFJLENBQUMsUUFBUSxHQUFHLFdBQVcsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFLEVBQUUsSUFBSSxDQUN6RCxDQUFBO0lBQ0gsQ0FBQztJQUtELFNBQVM7UUFDUCxhQUFhLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFBO0lBQ3RDLENBQUM7SUFLRCxVQUFVO1FBQ1IsSUFBSSxDQUFDLGdCQUFnQixHQUFHLENBQUMsQ0FBQztRQUMxQixJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDO1FBQzFDLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQztRQUNqQixJQUFJLENBQUMsVUFBVSxFQUFFLENBQUM7SUFDcEIsQ0FBQztJQUtELFdBQVc7UUFDVCxJQUFJLENBQUMsZ0JBQWdCLEVBQUUsQ0FBQztRQUN4QixJQUFJLENBQUMsZ0JBQWdCLElBQUksSUFBSSxDQUFDLG1CQUFtQixDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUE7SUFDbEgsQ0FBQztJQU9PLGFBQWEsQ0FBQyxLQUFhO1FBQ2pDLElBQUksSUFBSSxDQUFDLE9BQU8sRUFBRTtZQUNoQixJQUFJLENBQUMsT0FBTyxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsa0JBQWtCLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDM0Q7SUFDSCxDQUFDO0lBUU8sa0JBQWtCLENBQUMsS0FBYTtRQUN0QyxJQUFJLEtBQUssQ0FBQyxRQUFRLEVBQUUsQ0FBQyxNQUFNLEtBQUssQ0FBQyxFQUFFO1lBQ2pDLE9BQU8sS0FBSyxLQUFLLEVBQUUsQ0FBQTtTQUNwQjthQUFNLElBQUksS0FBSyxDQUFDLFFBQVEsRUFBRSxDQUFDLE1BQU0sS0FBSyxDQUFDLEVBQUU7WUFDeEMsT0FBTyxJQUFJLEtBQUssRUFBRSxDQUFBO1NBQ25CO2FBQU07WUFDTCxPQUFPLEdBQUcsS0FBSyxFQUFFLENBQUE7U0FDbEI7SUFDSCxDQUFDO0NBQ0YifQ==
 
 /***/ }),
 
@@ -3346,7 +3474,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e02cbaa5031cdbda005a")
+/******/ 		__webpack_require__.h = () => ("9eff0e39fa61f8467bf4")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
