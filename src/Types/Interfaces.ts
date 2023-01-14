@@ -13,6 +13,14 @@ export interface UiSelectors {
   alertButton: string;
 }
 
+export interface Buttons {
+  alert: HTMLButtonElement | null;
+  easy: HTMLButtonElement | null;
+  normal: HTMLButtonElement | null;
+  expert: HTMLButtonElement | null;
+  reset: HTMLButtonElement | null;
+}
+
 interface boardCofig {
   rows: number;
   cols: number;

@@ -1,4 +1,5 @@
 // Classes
+import { Alert } from "./Alert";
 import { Counter } from "./Counter";
 import { Timer } from "./Timer";
 import { Ui } from "./Ui";
@@ -15,6 +16,10 @@ import { gameConfig } from "../Types/Interfaces";
  * const game = new Game();
  */
 export class Game extends Ui {
+  /**
+   * @property {gameConfig} config - Object containing the configurations setting for the game, separated by difficulty level.
+   * @private
+   */
   private config: gameConfig = {
     easy: {
       rows: 8,
@@ -33,6 +38,11 @@ export class Game extends Ui {
     },
   }
 
+  /**
+   * @property {Alert} alert - Alert for game.
+   * @private
+   */
+  private alert = new Alert();
   /**
    * @property {Counter} counter - Mines counter for game.
    * @private
