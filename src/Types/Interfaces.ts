@@ -1,3 +1,5 @@
+import { ResetButton } from "../Classes/ResetButton";
+
 export interface UiSelectors {
   board: string;
   cell: string;
@@ -18,7 +20,7 @@ export interface Buttons {
   easy: HTMLButtonElement | null;
   normal: HTMLButtonElement | null;
   expert: HTMLButtonElement | null;
-  reset: HTMLButtonElement | null;
+  reset: ResetButton,
 }
 
 interface boardCofig {

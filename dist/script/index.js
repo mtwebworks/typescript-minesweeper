@@ -930,6 +930,41 @@ Object.defineProperty(exports, "__esModule", ({value:true}));exports.fromCodePoi
 
 /***/ }),
 
+/***/ "./src/Classes/Alert.ts":
+/*!******************************!*\
+  !*** ./src/Classes/Alert.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Alert": () => (/* binding */ Alert)
+/* harmony export */ });
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+/* harmony import */ var _Types_Enums__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Types/Enums */ "./src/Types/Enums.ts");
+
+
+class Alert extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
+    constructor() {
+        super(...arguments);
+        this.element = this.getElement(this.UiSelectors.alert);
+        this.button = this.getElement(this.UiSelectors.alertButton);
+        this.messageElement = this.getElement(this.UiSelectors.alertMessage);
+        this.toggleAlert = () => {
+            this.element.classList.toggle(_Types_Enums__WEBPACK_IMPORTED_MODULE_1__.elementsClasses.ALERT_HIDDEN);
+        };
+    }
+    setText(textContent) {
+        if (this.messageElement !== null) {
+            this.messageElement.innerHTML = textContent;
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWxlcnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBbGVydC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsRUFBRSxFQUFFLE1BQU0sTUFBTSxDQUFDO0FBQzFCLE9BQU8sRUFBRSxlQUFlLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQztBQVNqRCxNQUFNLE9BQU8sS0FBTSxTQUFRLEVBQUU7SUFBN0I7O1FBSUUsWUFBTyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxLQUFLLENBQW1CLENBQUM7UUFJcEUsV0FBTSxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxXQUFXLENBQXNCLENBQUM7UUFJNUUsbUJBQWMsR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUE0QixDQUFDO1FBSzNGLGdCQUFXLEdBQUcsR0FBRyxFQUFFO1lBQ2pCLElBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxlQUFlLENBQUMsWUFBWSxDQUFDLENBQUE7UUFDN0QsQ0FBQyxDQUFBO0lBVUgsQ0FBQztJQUxDLE9BQU8sQ0FBQyxXQUFtQjtRQUN6QixJQUFJLElBQUksQ0FBQyxjQUFjLEtBQUssSUFBSSxFQUFFO1lBQ2hDLElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxHQUFHLFdBQVcsQ0FBQztTQUM3QztJQUNILENBQUM7Q0FDRiJ9
+
+/***/ }),
+
 /***/ "./src/Classes/Counter.ts":
 /*!********************************!*\
   !*** ./src/Classes/Counter.ts ***!
@@ -993,13 +1028,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Game": () => (/* binding */ Game)
 /* harmony export */ });
-/* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Counter */ "./src/Classes/Counter.ts");
-/* harmony import */ var _Timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Timer */ "./src/Classes/Timer.ts");
-/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alert */ "./src/Classes/Alert.ts");
+/* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Counter */ "./src/Classes/Counter.ts");
+/* harmony import */ var _ResetButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResetButton */ "./src/Classes/ResetButton.ts");
+/* harmony import */ var _Timer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Timer */ "./src/Classes/Timer.ts");
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
 
 
 
-class Game extends _Ui__WEBPACK_IMPORTED_MODULE_2__.Ui {
+
+
+class Game extends _Ui__WEBPACK_IMPORTED_MODULE_4__.Ui {
     constructor() {
         super(...arguments);
         this.config = {
@@ -1019,16 +1058,67 @@ class Game extends _Ui__WEBPACK_IMPORTED_MODULE_2__.Ui {
                 mines: 99
             },
         };
-        this.counter = new _Counter__WEBPACK_IMPORTED_MODULE_0__.Counter();
-        this.timer = new _Timer__WEBPACK_IMPORTED_MODULE_1__.Timer();
+        this.alert = new _Alert__WEBPACK_IMPORTED_MODULE_0__.Alert();
+        this.counter = new _Counter__WEBPACK_IMPORTED_MODULE_1__.Counter();
+        this.timer = new _Timer__WEBPACK_IMPORTED_MODULE_3__.Timer();
         this.numberOfRows = null;
         this.numberOfCols = null;
         this.numberOfMines = null;
+        this.cells = [];
+        this.cellElements = null;
+        this.board = null;
+        this.cellsToReveal = 0;
+        this.revealedCells = 0;
+        this.isGameFinished = false;
+        this.buttons = {
+            alert: null,
+            easy: null,
+            normal: null,
+            expert: null,
+            reset: new _ResetButton__WEBPACK_IMPORTED_MODULE_2__.ResetButton()
+        };
     }
     initializeGame() {
     }
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUEsT0FBTyxFQUFFLE9BQU8sRUFBRSxNQUFNLFdBQVcsQ0FBQztBQUNwQyxPQUFPLEVBQUUsS0FBSyxFQUFFLE1BQU0sU0FBUyxDQUFDO0FBQ2hDLE9BQU8sRUFBRSxFQUFFLEVBQUUsTUFBTSxNQUFNLENBQUM7QUFhMUIsTUFBTSxPQUFPLElBQUssU0FBUSxFQUFFO0lBQTVCOztRQUtVLFdBQU0sR0FBZTtZQUMzQixJQUFJLEVBQUU7Z0JBQ0osSUFBSSxFQUFFLENBQUM7Z0JBQ1AsSUFBSSxFQUFFLENBQUM7Z0JBQ1AsS0FBSyxFQUFFLENBQUM7YUFDVDtZQUNELE1BQU0sRUFBRTtnQkFDTixJQUFJLEVBQUUsRUFBRTtnQkFDUixJQUFJLEVBQUUsRUFBRTtnQkFDUixLQUFLLEVBQUUsRUFBRTthQUNWO1lBQ0QsTUFBTSxFQUFFO2dCQUNOLElBQUksRUFBRSxFQUFFO2dCQUNSLElBQUksRUFBRSxFQUFFO2dCQUNSLEtBQUssRUFBRSxFQUFFO2FBQ1Y7U0FDRixDQUFBO1FBVU8sWUFBTyxHQUFHLElBQUksT0FBTyxFQUFFLENBQUM7UUFLeEIsVUFBSyxHQUFVLElBQUksS0FBSyxFQUFFLENBQUM7UUFNM0IsaUJBQVksR0FBa0IsSUFBSSxDQUFDO1FBS25DLGlCQUFZLEdBQWtCLElBQUksQ0FBQztRQUtuQyxrQkFBYSxHQUFrQixJQUFJLENBQUM7SUFTOUMsQ0FBQztJQUZDLGNBQWM7SUFDZCxDQUFDO0NBQ0YifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsT0FBTyxFQUFFLEtBQUssRUFBRSxNQUFNLFNBQVMsQ0FBQztBQUVoQyxPQUFPLEVBQUUsT0FBTyxFQUFFLE1BQU0sV0FBVyxDQUFDO0FBQ3BDLE9BQU8sRUFBRSxXQUFXLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDNUMsT0FBTyxFQUFFLEtBQUssRUFBRSxNQUFNLFNBQVMsQ0FBQztBQUNoQyxPQUFPLEVBQUUsRUFBRSxFQUFFLE1BQU0sTUFBTSxDQUFDO0FBWTFCLE1BQU0sT0FBTyxJQUFLLFNBQVEsRUFBRTtJQUE1Qjs7UUFNVSxXQUFNLEdBQWU7WUFDM0IsSUFBSSxFQUFFO2dCQUNKLElBQUksRUFBRSxDQUFDO2dCQUNQLElBQUksRUFBRSxDQUFDO2dCQUNQLEtBQUssRUFBRSxDQUFDO2FBQ1Q7WUFDRCxNQUFNLEVBQUU7Z0JBQ04sSUFBSSxFQUFFLEVBQUU7Z0JBQ1IsSUFBSSxFQUFFLEVBQUU7Z0JBQ1IsS0FBSyxFQUFFLEVBQUU7YUFDVjtZQUNELE1BQU0sRUFBRTtnQkFDTixJQUFJLEVBQUUsRUFBRTtnQkFDUixJQUFJLEVBQUUsRUFBRTtnQkFDUixLQUFLLEVBQUUsRUFBRTthQUNWO1NBQ0YsQ0FBQTtRQUtPLFVBQUssR0FBRyxJQUFJLEtBQUssRUFBRSxDQUFDO1FBS3BCLFlBQU8sR0FBRyxJQUFJLE9BQU8sRUFBRSxDQUFDO1FBS3hCLFVBQUssR0FBVSxJQUFJLEtBQUssRUFBRSxDQUFDO1FBTTNCLGlCQUFZLEdBQWtCLElBQUksQ0FBQztRQUtuQyxpQkFBWSxHQUFrQixJQUFJLENBQUM7UUFLbkMsa0JBQWEsR0FBa0IsSUFBSSxDQUFDO1FBTXBDLFVBQUssR0FBVyxFQUFFLENBQUM7UUFLbkIsaUJBQVksR0FBb0IsSUFBSSxDQUFDO1FBS3JDLFVBQUssR0FBMEIsSUFBSSxDQUFDO1FBTXBDLGtCQUFhLEdBQVcsQ0FBQyxDQUFDO1FBSzFCLGtCQUFhLEdBQVcsQ0FBQyxDQUFDO1FBSzFCLG1CQUFjLEdBQVksS0FBSyxDQUFDO1FBTWhDLFlBQU8sR0FBWTtZQUN6QixLQUFLLEVBQUUsSUFBSTtZQUNYLElBQUksRUFBRSxJQUFJO1lBQ1YsTUFBTSxFQUFFLElBQUk7WUFDWixNQUFNLEVBQUUsSUFBSTtZQUNaLEtBQUssRUFBRSxJQUFJLFdBQVcsRUFBRTtTQUN6QixDQUFBO0lBT0gsQ0FBQztJQUZDLGNBQWM7SUFDZCxDQUFDO0NBQ0YifQ==
+
+/***/ }),
+
+/***/ "./src/Classes/ResetButton.ts":
+/*!************************************!*\
+  !*** ./src/Classes/ResetButton.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ResetButton": () => (/* binding */ ResetButton)
+/* harmony export */ });
+/* harmony import */ var _Ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ui */ "./src/Classes/Ui.ts");
+/* harmony import */ var _Types_Enums__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Types/Enums */ "./src/Types/Enums.ts");
+
+
+class ResetButton extends _Ui__WEBPACK_IMPORTED_MODULE_0__.Ui {
+    constructor() {
+        super(...arguments);
+        this.element = this.getElement(this.UiSelectors.resetButton);
+        this.icon = this.getElement(this.UiSelectors.resetIcon);
+    }
+    setIconOnClick(iconType) {
+        this.setIcon(iconType);
+        setTimeout(() => {
+            this.setIcon(_Types_Enums__WEBPACK_IMPORTED_MODULE_1__.iconUrl.POSITIVE);
+        }, 250);
+    }
+    setIcon(iconType) {
+        if (this.icon) {
+            this.icon.src = iconType;
+        }
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmVzZXRCdXR0b24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJSZXNldEJ1dHRvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQSxPQUFPLEVBQUUsRUFBRSxFQUFFLE1BQU0sTUFBTSxDQUFBO0FBR3pCLE9BQU8sRUFBRSxPQUFPLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQztBQVN6QyxNQUFNLE9BQU8sV0FBWSxTQUFRLEVBQUU7SUFBbkM7O1FBSUUsWUFBTyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxXQUFXLENBQTZCLENBQUM7UUFLNUUsU0FBSSxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxTQUFTLENBQTRCLENBQUM7SUFzQnhGLENBQUM7SUFoQkMsY0FBYyxDQUFDLFFBQWlCO1FBQzlCLElBQUksQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLENBQUE7UUFDdEIsVUFBVSxDQUFDLEdBQUcsRUFBRTtZQUNkLElBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFBO1FBQ2hDLENBQUMsRUFBRSxHQUFHLENBQUMsQ0FBQTtJQUNULENBQUM7SUFNRCxPQUFPLENBQUMsUUFBaUI7UUFDdkIsSUFBSSxJQUFJLENBQUMsSUFBSSxFQUFFO1lBQ2IsSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLEdBQUcsUUFBUSxDQUFDO1NBQzFCO0lBQ0gsQ0FBQztDQUNGIn0=
 
 /***/ }),
 
@@ -1135,6 +1225,46 @@ class Ui {
     }
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVWkuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFRQSxNQUFNLE9BQU8sRUFBRTtJQUFmO1FBSUUsZ0JBQVcsR0FBZ0I7WUFDekIsS0FBSyxFQUFFLGNBQWM7WUFDckIsSUFBSSxFQUFFLGFBQWE7WUFDbkIsT0FBTyxFQUFFLGdCQUFnQjtZQUN6QixLQUFLLEVBQUUsY0FBYztZQUNyQixXQUFXLEVBQUUscUJBQXFCO1lBQ2xDLFNBQVMsRUFBRSxtQkFBbUI7WUFDOUIsVUFBVSxFQUFFLG9CQUFvQjtZQUNoQyxZQUFZLEVBQUUsc0JBQXNCO1lBQ3BDLFlBQVksRUFBRSxzQkFBc0I7WUFDcEMsS0FBSyxFQUFFLGNBQWM7WUFDckIsWUFBWSxFQUFFLHNCQUFzQjtZQUNwQyxXQUFXLEVBQUUscUJBQXFCO1NBQ25DLENBQUE7SUFtQkgsQ0FBQztJQVpDLFVBQVUsQ0FBQyxRQUFnQjtRQUN6QixPQUFPLFFBQVEsQ0FBQyxhQUFhLENBQUMsUUFBUSxDQUFDLENBQUE7SUFDekMsQ0FBQztJQU9ELFdBQVcsQ0FBQyxRQUFnQjtRQUMxQixPQUFPLFFBQVEsQ0FBQyxnQkFBZ0IsQ0FBQyxRQUFRLENBQUMsQ0FBQTtJQUM1QyxDQUFDO0NBQ0YifQ==
+
+/***/ }),
+
+/***/ "./src/Types/Enums.ts":
+/*!****************************!*\
+  !*** ./src/Types/Enums.ts ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "alerMessages": () => (/* binding */ alerMessages),
+/* harmony export */   "elementsClasses": () => (/* binding */ elementsClasses),
+/* harmony export */   "iconUrl": () => (/* binding */ iconUrl)
+/* harmony export */ });
+var elementsClasses;
+(function (elementsClasses) {
+    elementsClasses["CELL"] = "board__cell";
+    elementsClasses["CELL_MINE"] = "board__cell--mine";
+    elementsClasses["CELL_FLAG"] = "board__cell--flag";
+    elementsClasses["CELL_MARK"] = "board__cell--mark";
+    elementsClasses["CELL_CLICKED"] = "board__cell--clicked";
+    elementsClasses["CELL_VALUE"] = "board__cell--";
+    elementsClasses["ALERT_HIDDEN"] = "alert--hidden";
+})(elementsClasses || (elementsClasses = {}));
+var iconUrl;
+(function (iconUrl) {
+    iconUrl["NEGATIVE"] = "./assets/negative.svg";
+    iconUrl["POSITIVE"] = "./assets/positive.svg";
+    iconUrl["SUPRISED"] = "./assets/suprised.svg";
+})(iconUrl || (iconUrl = {}));
+var alerMessages;
+(function (alerMessages) {
+    alerMessages["LOST"] = "You lost, try again!";
+    alerMessages["WIN_IN_TIME"] = "Congratulations! You won in:";
+    alerMessages["WIN"] = "Congratulations! You won!";
+    alerMessages["SECONDS"] = "seconds.";
+})(alerMessages || (alerMessages = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFbnVtcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQU4sSUFBWSxlQVFYO0FBUkQsV0FBWSxlQUFlO0lBQ3pCLHVDQUFvQixDQUFBO0lBQ3BCLGtEQUErQixDQUFBO0lBQy9CLGtEQUErQixDQUFBO0lBQy9CLGtEQUErQixDQUFBO0lBQy9CLHdEQUFxQyxDQUFBO0lBQ3JDLCtDQUE0QixDQUFBO0lBQzVCLGlEQUE4QixDQUFBO0FBQ2hDLENBQUMsRUFSVyxlQUFlLEtBQWYsZUFBZSxRQVExQjtBQUVELE1BQU0sQ0FBTixJQUFZLE9BSVg7QUFKRCxXQUFZLE9BQU87SUFDakIsNkNBQWtDLENBQUE7SUFDbEMsNkNBQWtDLENBQUE7SUFDbEMsNkNBQWtDLENBQUE7QUFDcEMsQ0FBQyxFQUpXLE9BQU8sS0FBUCxPQUFPLFFBSWxCO0FBRUQsTUFBTSxDQUFOLElBQVksWUFLWDtBQUxELFdBQVksWUFBWTtJQUN0Qiw2Q0FBNkIsQ0FBQTtJQUM3Qiw0REFBNEMsQ0FBQTtJQUM1QyxpREFBaUMsQ0FBQTtJQUNqQyxvQ0FBb0IsQ0FBQTtBQUN0QixDQUFDLEVBTFcsWUFBWSxLQUFaLFlBQVksUUFLdkIifQ==
 
 /***/ }),
 
@@ -3474,7 +3604,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("3e648e51aed1aee4897f")
+/******/ 		__webpack_require__.h = () => ("bcc41dacf7935e137878")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

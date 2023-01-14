@@ -1,12 +1,13 @@
 // Classes
 import { Alert } from "./Alert";
+import { Cell } from "./Cell";
 import { Counter } from "./Counter";
+import { ResetButton } from "./ResetButton";
 import { Timer } from "./Timer";
 import { Ui } from "./Ui";
 
-
 // Types
-import { gameConfig } from "../Types/Interfaces";
+import { Buttons, gameConfig } from "../Types/Interfaces";
 
 /**
  * Main class that's manage the game.
@@ -16,6 +17,7 @@ import { gameConfig } from "../Types/Interfaces";
  * const game = new Game();
  */
 export class Game extends Ui {
+
   /**
    * @property {gameConfig} config - Object containing the configurations setting for the game, separated by difficulty level.
    * @private
@@ -37,7 +39,6 @@ export class Game extends Ui {
       mines: 99
     },
   }
-
   /**
    * @property {Alert} alert - Alert for game.
    * @private
@@ -70,11 +71,53 @@ export class Game extends Ui {
    */
   private numberOfMines: number | null = null;
 
-
+  /**
+   * @property {Cell[]} cells - Array of generated cells.
+   * @private
+   */
+  private cells: Cell[] = [];
+  /**
+   * @property {NodeList} cells - NodeList of cells UI elements.
+   * @private
+   */
+  private cellElements: NodeList | null = null;
+  /**
+   * @property {HTMLDivElement | null} board - Board UI elements.
+   * @private
+   */
+  private board: HTMLDivElement | null = null;
 
   /**
- * Method for game initialization. 
- */
+   * @property {number} cellsToReveal - Number of cells to reveal.
+   * @private
+   */
+  private cellsToReveal: number = 0;
+  /**
+   * @property {number} cellsToReveal - Number of revealed cells.
+   * @private
+   */
+  private revealedCells: number = 0;
+  /**
+   * @property {boolean} isGameFinished - State of game.
+   * @private
+   */
+  private isGameFinished: boolean = false;
+
+  /**
+   * @property {Buttons} buttons - Object containing UI button elements.
+   * @private
+   */
+  private buttons: Buttons = {
+    alert: null,
+    easy: null,
+    normal: null,
+    expert: null,
+    reset: new ResetButton()
+  }
+
+  /**
+   * Method for game initialization. 
+   */
   initializeGame() {
   }
 }
