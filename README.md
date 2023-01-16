@@ -29,4 +29,4 @@ npm start
 Project website should automatically open in your default browser or you can open it at chosen browser to http://localhost:8000
 
 ## Feedback
-I am always open for feedback that helps me improve my development skills, so feel free to contact.
+I am always open for feedback that helps me improve my development skills, so feel free to contact.git 
