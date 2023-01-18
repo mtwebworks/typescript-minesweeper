@@ -7,8 +7,8 @@
 **Live**: https://mtwebworks.github.io/typescript-minesweeper/
 
 #### Features: 
-- curreny weather with details
-- counter of amount of mines left to reveal 
+- 3 difficulty levels as in original game: easy, normal and expert
+- counter of mines left to reveal 
 - game duration timer
 
 ## Installation and usage: 
