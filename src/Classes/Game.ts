@@ -7,8 +7,8 @@ import { Timer } from "./Timer";
 import { Ui } from "./Ui";
 
 // Types
-import { Buttons, gameConfig } from "../Types/Interfaces";
-import { alerMessages, iconUrl } from "../Types/Enums";
+import { Buttons, gameConfig } from "../types/Interfaces";
+import { alerMessages, iconUrl } from "../types/Enums";
 
 /**
  * Main class that's manage the game.

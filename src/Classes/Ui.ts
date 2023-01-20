@@ -1,4 +1,4 @@
-import { UiSelectors } from "../Types/Interfaces"
+import { UiSelectors } from "../types/Interfaces"
 
 /**
  * Common class that keeps selector and allows to gets theirs html elements.

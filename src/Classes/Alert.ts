@@ -1,5 +1,5 @@
 import { Ui } from "./Ui";
-import { elementsClasses } from "../Types/Enums";
+import { elementsClasses } from "../types/Enums";
 
 /**
  * Alert class for displaying end game \

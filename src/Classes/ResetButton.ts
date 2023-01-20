@@ -2,7 +2,7 @@
 import { Ui } from "./Ui"
 
 // Types
-import { iconUrl } from "../Types/Enums";
+import { iconUrl } from "../types/Enums";
 
 /**
  * Class for game resetting button.

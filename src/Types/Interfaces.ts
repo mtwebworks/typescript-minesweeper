@@ -1,4 +1,4 @@
-import { ResetButton } from "../Classes/ResetButton";
+import { ResetButton } from "../classes/ResetButton";
 
 export interface UiSelectors {
   board: string;

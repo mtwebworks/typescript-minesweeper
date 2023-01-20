@@ -1,4 +1,4 @@
-import { Game } from "./Classes/Game";
+import { Game } from "./classes/Game";
 
 window.onload = function () {
   const game: Game = new Game();

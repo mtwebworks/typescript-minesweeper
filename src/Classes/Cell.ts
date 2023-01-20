@@ -2,7 +2,7 @@
 import { Ui } from "./Ui";
 
 // Types
-import { elementsClasses } from "../Types/Enums";
+import { elementsClasses } from "../types/Enums";
 
 
 /**
