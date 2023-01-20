@@ -1133,7 +1133,7 @@ class Game extends _Ui__WEBPACK_IMPORTED_MODULE_5__.Ui {
             easy: {
                 rows: 8,
                 cols: 8,
-                mines: 9
+                mines: 2
             },
             normal: {
                 rows: 16,
@@ -3889,7 +3889,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("19419cd4699cc8442ca9")
+/******/ 		__webpack_require__.h = () => ("2b0cd45a0349177c170b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

@@ -20,7 +20,6 @@ $ cd typescript-minesweeper
 Install all dependencies.
 ```sh
 $ npm install
-$ npm start
 ```
 Run the development server: 
 ```sh
