@@ -12,21 +12,23 @@ export class Alert extends Ui {
   /**
    * @property {HTMLDivElement} element - Alert element on UI.
    */
-  element = this.getElement(this.UiSelectors.alert) as HTMLDivElement;
+  element = this.getElement<HTMLDivElement>(this.UiSelectors.alert);
   /**
    * @property {HTMLDivElement} element - Alerts button element on UI.
    */
-  button = this.getElement(this.UiSelectors.alertButton) as HTMLButtonElement;
+  button = this.getElement<HTMLButtonElement>(this.UiSelectors.alertButton);
   /**
    * @property {HTMLDivElement} element - Alerts message element on UI.
    */
-  messageElement = this.getElement(this.UiSelectors.alertMessage) as HTMLTitleElement | null;
+  messageElement = this.getElement<HTMLButtonElement>(this.UiSelectors.alertMessage);
 
   /**
    * Method for toggling visibility of alert element on UI.
    */
   toggleAlert = () => {
-    this.element.classList.toggle(elementsClasses.ALERT_HIDDEN)
+    if (this.element) {
+      this.element.classList.toggle(elementsClasses.ALERT_HIDDEN)
+    }
   }
 
   /**

@@ -42,7 +42,7 @@ export class Timer extends Ui {
    * Initializing method that gets DOM's element for timer.
    */
   init() {
-    this.element = this.getElement(this.UiSelectors.timer) as HTMLSpanElement
+    this.element = this.getElement<HTMLSpanElement>(this.UiSelectors.timer);
   }
 
   /**

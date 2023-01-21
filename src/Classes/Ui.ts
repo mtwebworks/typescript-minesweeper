@@ -30,8 +30,8 @@ export class Ui {
    * @param {string} selector - String with element slecetor.
    * @returns - Returns html element.
    */
-  getElement(selector: string) {
-    return document.querySelector(selector)
+  getElement<T extends Element>(selector: string) {
+    return document.querySelector<T>(selector)
   }
 
   /**

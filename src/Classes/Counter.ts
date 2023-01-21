@@ -23,7 +23,7 @@ export class Counter extends Ui {
    * Initializing method that gets DOM's element for counter.
    */
   init() {
-    this.element = this.getElement(this.UiSelectors.counter) as HTMLSpanElement;
+    this.element = this.getElement<HTMLSpanElement>(this.UiSelectors.counter);
   }
 
   /**

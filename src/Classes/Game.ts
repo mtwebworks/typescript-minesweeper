@@ -243,11 +243,11 @@ export class Game extends Ui {
    * @private
    */
   private handleElements() {
-    this.board = this.getElement(this.UiSelectors.board) as HTMLDivElement;
-    this.buttons.alert = this.getElement(this.UiSelectors.alert) as HTMLButtonElement;
-    this.buttons.easy = this.getElement(this.UiSelectors.easyButton) as HTMLButtonElement;
-    this.buttons.normal = this.getElement(this.UiSelectors.normalButton) as HTMLButtonElement;
-    this.buttons.expert = this.getElement(this.UiSelectors.expertButton) as HTMLButtonElement;
+    this.board = this.getElement<HTMLDivElement>(this.UiSelectors.board);
+    this.buttons.alert = this.getElement<HTMLButtonElement>(this.UiSelectors.alert);
+    this.buttons.easy = this.getElement<HTMLButtonElement>(this.UiSelectors.easyButton);
+    this.buttons.normal = this.getElement<HTMLButtonElement>(this.UiSelectors.normalButton);
+    this.buttons.expert = this.getElement<HTMLButtonElement>(this.UiSelectors.expertButton);
   }
 
   /**
@@ -386,7 +386,7 @@ export class Game extends Ui {
     }
     this.cells.forEach(cell => {
       this.board?.append(cell.createElement())
-      cell.element = this.getElement(cell.selector) as HTMLDivElement;
+      cell.element = this.getElement<HTMLDivElement>(cell.selector);
     })
   }
 

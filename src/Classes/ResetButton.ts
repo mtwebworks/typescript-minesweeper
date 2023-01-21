@@ -15,12 +15,12 @@ export class ResetButton extends Ui {
   /**
    * @property {HTMLButtonElement | null} element - DOM element for the button.
    */
-  element = this.getElement(this.UiSelectors.resetButton) as HTMLButtonElement | null;
+  element = this.getElement<HTMLButtonElement>(this.UiSelectors.resetButton);
   /**
    * @property {HTMLImageElement | null} icon - DOM element for the icon.
    * @private
    */
-  private icon = this.getElement(this.UiSelectors.resetIcon) as HTMLImageElement | null;
+  private icon = this.getElement<HTMLImageElement>(this.UiSelectors.resetIcon);
 
   /**
    * Method for temporarily setting button icon.
